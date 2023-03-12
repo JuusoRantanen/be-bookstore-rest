@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Categories</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Categories</h1>
+    <table>
+		<tr>
+		     <th>Category</th>
+		</tr>  
+    	<tr th:each = "category : ${categories}">
+    		<td th:text="${category.name}"></td>
+    		<td><a th:href="@{/editCategory/{id}(id=${category.id})}">Muokkaa</a></td>
+ 				
+    	</tr>
+     </table>
+     <a href="/index">Palaa pääsivulle</a>
+     <a href="/addCategory">Add category</a>
+     <form th:action="@{/logout}" method="post">
+	<input type="submit" value="Sign Out"/>
+     
+</body>
+</html>

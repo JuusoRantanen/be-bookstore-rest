@@ -5,6 +5,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<i>Hei <b sec:authentication="name"></b>, 
+        rooli: <b sec:authentication="principal.authorities"></b>
 <H1 th:text="'Index page'" /> </H1>
+<a href="books">All books</a>
+<a sec:authorize="hasAuthority('ADMIN')" href="/categories">All categories</a>
+<form th:action="@{/logout}" method="post">
+	<input type="submit" value="Sign Out"/>
+</form>
 </body>
 </html>
